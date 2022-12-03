@@ -1,13 +1,28 @@
 import styled from "styled-components";
 import HomeIcon from "@mui/icons-material/Home";
+import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
+import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
+import VideoLibraryOutlinedIcon from "@mui/icons-material/VideoLibraryOutlined";
+import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
+import LibraryMusicOutlinedIcon from "@mui/icons-material/LibraryMusicOutlined";
+import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
+import SportsBasketballOutlinedIcon from "@mui/icons-material/SportsBasketballOutlined";
+import MovieOutlinedIcon from "@mui/icons-material/MovieOutlined";
+import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
+import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
+import { Link } from "react-router-dom";
 const Container = styled.div`
-  width: 200px;
-
+  width: 240px;
   background-color: ${({ theme }) => theme.bg};
   height: 100vh;
   color: ${({ theme }) => theme.text};
   font-size: 14px;
-  position: relative;
+  position: sticky;
   top: 0;
   overflow-y: auto;
   ::-webkit-scrollbar {
@@ -30,7 +45,7 @@ const Wrapper = styled.div`
 const Logo = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
   margin-bottom: 25px;
   font-weight: bold;
   cursor: pointer;
@@ -61,10 +76,6 @@ const Login = styled.div`
   display: block;
 `;
 
-const Text = styled.h4`
-  font-weight: 400;
-`;
-
 const Button = styled.button`
   padding: 5px 15px;
   background-color: transparent;
@@ -74,6 +85,9 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 500;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 
 const Title = styled.h2`
@@ -88,37 +102,86 @@ const Menu = ({ darkMode, setDarkMode }) => {
     <>
       <Container>
         <Wrapper>
-          <Logo>
-            <Image />
-            Video Stream
-          </Logo>
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Logo>
+              <Image />
+              Streamer
+            </Logo>
+          </Link>
           <Item>
-            {/* <HomeIcon /> */}
+            <HomeIcon />
             Home
           </Item>
-          <Item>Explore</Item>
-          <Item>Subscriptions</Item>
+          <Item>
+            <ExploreOutlinedIcon />
+            Explore
+          </Item>
+          <Item>
+            <SubscriptionsOutlinedIcon />
+            Subscriptions
+          </Item>
           <Hr />
-          <Item>Library</Item>
-          <Item>History</Item>
+          <Item>
+            <VideoLibraryOutlinedIcon />
+            Library
+          </Item>
+          <Item>
+            <HistoryOutlinedIcon />
+            History
+          </Item>
           <Hr />
           <Login>
-            <Text> Sign in to like the videos.</Text>
-            <Button>SIGN IN</Button>
+            Sign in to like videos, comment, and subscribe.
+            <Link to="signin" style={{ textDecoration: "none" }}>
+              <Button>
+                <AccountCircleOutlinedIcon />
+                SIGN IN
+              </Button>
+            </Link>
           </Login>
           <Hr />
-          <Title>BEST OF VIDEOS</Title>
-          <Item>Your Videos</Item>
-          <Item>Music</Item>
-          <Item>Sports</Item>
-          <Item>Movies</Item>
-          <Item>News</Item>
-          <Item>Live</Item>
+          <Title>BEST OF STREAMER</Title>
+          <Item>
+            <LibraryMusicOutlinedIcon />
+            Music
+          </Item>
+          <Item>
+            <SportsBasketballOutlinedIcon />
+            Sports
+          </Item>
+          <Item>
+            <SportsEsportsOutlinedIcon />
+            Gaming
+          </Item>
+          <Item>
+            <MovieOutlinedIcon />
+            Movies
+          </Item>
+          <Item>
+            <ArticleOutlinedIcon />
+            News
+          </Item>
+          <Item>
+            <LiveTvOutlinedIcon />
+            Live
+          </Item>
           <Hr />
-          <Item>Settings</Item>
-          <Item>Report</Item>
-          <Item>Help</Item>
-          <Item onClick={() => setDarkMode(!darkMode)}>Light mode</Item>
+          <Item>
+            <SettingsOutlinedIcon />
+            Settings
+          </Item>
+          <Item>
+            <FlagOutlinedIcon />
+            Report
+          </Item>
+          <Item>
+            <HelpOutlineOutlinedIcon />
+            Help
+          </Item>
+          <Item onClick={() => setDarkMode(!darkMode)}>
+            <SettingsBrightnessOutlinedIcon />
+            {darkMode ? "Light" : "Dark"} Mode
+          </Item>
         </Wrapper>
       </Container>
     </>
